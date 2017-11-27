@@ -16,7 +16,8 @@ ADD application.properties /usr/local/tomcat/conf/application.properties
 RUN mkdir /deployments/logs
 RUN chgrp -R 0 /deployments/logs/
 RUN chmod -R g+rw /deployments/logs/
-ENV JAVA_OPTS="-javaagent:/opt/appdynamics/javaagent.jar -Dappdynamics.agent.logs.dir=/deployments/logs  $JAVA_OPTS"
+ENV JAVA_OPTS="-javaagent:/opt/appdynamics/javaagent.jar -Dappdynamics.agent.logs.dir=/deployments/logs $JAVA_OPTS"
+ENV JAVA_OPTS="$JAVA_OPTS -Xbootclasspath/p:/wildfly/modules/system/layers/base/org/jboss/log4j/logmanager/main/log4j-jboss-logmanager-1.0.2.Final-redhat-1.jar -Djboss.modules.system.pkgs=org.jboss.byteman,com.appdynamics,com.appdynamics.,com.singularity,com.singularity."
 ENV spring_config_location="/usr/local/tomcat/conf/"
 
 ADD ROOT.war /deployments/ROOT.war
