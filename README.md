@@ -9,3 +9,4 @@ Si hiciera falta:
 oc import-image jboss-webserver-3/webserver31-tomcat8-openshift:1.1 --from=registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat8-openshift:1.1 --confirm
 
 oc new-app jws-java-appdynamics
+
