@@ -8,7 +8,8 @@ RUN chgrp -R 0 /opt/appdynamics/
 RUN chmod -R g+rw /opt/appdynamics/
 RUN find /opt/appdynamics/ -type d -exec chmod g+x {} +
 
-RUN keytool -import -alias avcrAppDProdController -file /tmp/AvantCardRootCertificationAuthority.crt -keystore /etc/pki/ca-trust/extracted/java/cacerts -noprompt -storepass 'changeit' 
+RUN keytool -import -trustcacerts -alias avcrAppDProdController -keystore $JAVA_HOME/jre/lib/security/cacerts -file /tmp/AvantCardRootCertificationAuthority.crt -noprompt -storepass 'changeit'
+#-keystore /etc/pki/ca-trust/extracted/java/cacerts  
 RUN mkdir /deployments/logs
 RUN chgrp -R 0 /deployments/logs/
 RUN chmod -R g+rw /deployments/logs/
