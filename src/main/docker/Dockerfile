@@ -8,7 +8,7 @@ RUN chgrp -R 0 /opt/appdynamics/
 RUN chmod -R g+rw /opt/appdynamics/
 RUN find /opt/appdynamics/ -type d -exec chmod g+x {} +
 
-RUN keytool -import -alias avcrAppDProdController -file AvantCardRootCertificationAuthority.crt
+RUN keytool -import -alias avcrAppDProdController -file AvantCardRootCertificationAuthority.crt -noprompt 
 RUN mkdir /deployments/logs
 RUN chgrp -R 0 /deployments/logs/
 RUN chmod -R g+rw /deployments/logs/
