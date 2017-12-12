@@ -8,7 +8,7 @@
     <agent-runtime-dir></agent-runtime-dir>
     <enable-orchestration>false</enable-orchestration>
     <account-name>customer1</account-name>
-    <account-access-key>${ACCOUNT-ACCESS-KEY}</account-access-key>
+    <account-access-key>${ACCOUNT_ACCESS_KEY}</account-access-key>
     <force-agent-registration>false</force-agent-registration>
     <auto-naming>true</auto-naming>
 </controller-info>
