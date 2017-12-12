@@ -4,8 +4,12 @@ kind: "Template"
 labels: {}
 metadata:
   annotations:
-    description: "# jws-java-appdynamics\nbase build for any JWS application requiring\
-      \ appdynamics agents\n"
+    description: "# jws-java-appdynamics\nExtraido de fis-java-appdynamics, modificado\
+      \ para monitorizar contenedores de Openshift con Appdynamics\n\n* base build\
+      \ for any JWS application requiring appdynamics agents\n\noc new-build https://github.com/isanmartin0/jws-java-appdynamics.git\
+      \ --context-dir=src/main/docker --allow-missing-images\n\nSi hiciera falta:\n\
+      oc import-image jboss-webserver-3/webserver31-tomcat8-openshift:1.1 --from=registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat8-openshift:1.1\
+      \ --confirm\n\noc new-app jws-java-appdynamics\n"
     fabric8.jws-java-appdynamics/iconUrl: "img/icons/java.svg"
   labels: {}
   name: "jws-java-appdynamics"
@@ -50,7 +54,6 @@ objects:
         env: []
         from:
           kind: "ImageStreamTag"
-#          name: "eap70-openshift:1.5"
           name: "webserver31-tomcat8-openshift:1.1"
           namespace: "openshift"
       type: "Docker"
@@ -58,7 +61,7 @@ objects:
     - imageChange:
         from:
           kind: "ImageStreamTag"
-          name: "jws-java-appdynamics:1.1"
+          name: "webserver31-tomcat8-openshift:1.1"
           namespace: "openshift"
       type: "ImageChange"
 parameters: []
