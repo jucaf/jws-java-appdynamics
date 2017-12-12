@@ -4,11 +4,11 @@
   "labels" : { },
   "metadata" : {
     "annotations" : {
-      "description" : "# poc_appdynamics_openshift\nbase build for any FIS application requiring appdynamics agents\n",
-      "fabric8.poc_appdynamics_openshift/iconUrl" : "img/icons/java.svg"
+      "description" : "# jws-java-appdynamics\nbase build for any JWS application requiring appdynamics agents\n",
+      "fabric8.jws-java-appdynamics/iconUrl" : "img/icons/java.svg"
     },
     "labels" : { },
-    "name" : "poc_appdynamics_openshift"
+    "name" : "jws-java-appdynamics"
   },
   "objects" : [ {
     "apiVersion" : "v1",
@@ -16,12 +16,12 @@
     "metadata" : {
       "annotations" : { },
       "labels" : {
-        "app" : "poc_appdynamics_openshift",
-        "project" : "poc_appdynamics_openshift",
+        "app" : "jws-java-appdynamics",
+        "project" : "jws-java-appdynamics",
         "version" : "1.0.0-SNAPSHOT",
         "group" : "openshift"
       },
-      "name" : "poc_appdynamics_openshift"
+      "name" : "jws-java-appdynamics"
     },
     "spec" : {
       "dockerImageRepository" : "",
@@ -33,24 +33,24 @@
     "metadata" : {
       "annotations" : { },
       "labels" : {
-        "app" : "poc_appdynamics_openshift",
-        "project" : "poc_appdynamics_openshift",
+        "app" : "jws-java-appdynamics",
+        "project" : "jws-java-appdynamics",
         "version" : "1.0.0-SNAPSHOT",
         "group" : "openshift"
       },
-      "name" : "poc_appdynamics_openshift"
+      "name" : "jws-java-appdynamics"
     },
     "spec" : {
       "output" : {
         "to" : {
           "kind" : "ImageStreamTag",
-          "name" : "poc_appdynamics_openshift:latest"
+          "name" : "jws-java-appdynamics:1.1"
         }
       },
       "source" : {
         "contextDir" : "src/main/docker",
         "git" : {
-          "uri" : "https://github.com/juantimonescalona/poc_appdynamics_openshift"
+          "uri" : "https://github.com/isanmartin0/jws-java-appdynamics"
         },
         "images" : [ ],
         "secrets" : [ ],
@@ -61,7 +61,7 @@
           "env" : [ ],
           "from" : {
             "kind" : "ImageStreamTag",
-            "name" : "webapp-appdynamics-openshift:latest",
+            "name" : "webserver31-tomcat8-openshift:1.1",
             "namespace" : "openshift"
           }
         },
@@ -71,7 +71,7 @@
         "imageChange" : {
           "from" : {
             "kind" : "ImageStreamTag",
-            "name" : "webapp-appdynamics-openshift:latest",
+            "name" : "jws-java-appdynamics:1.1",
             "namespace" : "openshift"
           }
         },
