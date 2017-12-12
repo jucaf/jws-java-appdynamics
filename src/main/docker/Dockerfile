@@ -3,12 +3,12 @@ FROM registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat8-openshift:
 USER root
 
 ADD appdynamics/ /opt/appdynamics/
-ADD AvantCardRootCertificationAuthority.crt 
+ADD AvantCardRootCertificationAuthority.crt /tmp
 RUN chgrp -R 0 /opt/appdynamics/
 RUN chmod -R g+rw /opt/appdynamics/
 RUN find /opt/appdynamics/ -type d -exec chmod g+x {} +
 
-RUN keytool -import -alias avcrAppDProdController -file AvantCardRootCertificationAuthority.crt -keystore /etc/pki/ca-trust/extracted/java/cacerts -noprompt -storepass 'changeit' 
+RUN keytool -import -alias avcrAppDProdController -file /tmp/AvantCardRootCertificationAuthority.crt -keystore /etc/pki/ca-trust/extracted/java/cacerts -noprompt -storepass 'changeit' 
 RUN mkdir /deployments/logs
 RUN chgrp -R 0 /deployments/logs/
 RUN chmod -R g+rw /deployments/logs/
