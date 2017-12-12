@@ -4,11 +4,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.atsistemas.devops</groupId>
-	<artifactId>poc-appdynamics-openshift</artifactId>
+	<groupId>com.evobanco</groupId>
+	<artifactId>jws-appdynamics-openshift</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>Fuse Integration Services :: Java :: AppDynamics</name>
+	<name>JWS :: Java :: AppDynamics</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
