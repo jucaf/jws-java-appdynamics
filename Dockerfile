@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/jboss-webserver-3/webserver31-tomcat8-openshift:1.1
 
 USER root
-
+RUN curl -o /deployments/ROOT.war -O ${WAR_FILE_URL} -H "X-JFrog-Art-Api:${ARTIFACTORY_TOKEN}"
 ADD src/main/docker/appdynamics/ /opt/appdynamics/
 ADD src/main/docker/AvantCardRootCertificationAuthority.crt /tmp
 RUN chgrp -R 0 /opt/appdynamics/
